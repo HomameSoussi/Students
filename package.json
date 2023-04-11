@@ -1,0 +1,13 @@
+{
+  "name": "students",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vercel dev",
+    "start": "vercel serve",
+    "deploy": "vercel"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.7"
+  }
+}
