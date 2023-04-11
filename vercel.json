@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/gpt-proxy.js": {
+      "runtime": "nodejs14.x"
+    }
+  }
+}
