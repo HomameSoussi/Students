@@ -1,6 +1,7 @@
 const form = document.getElementById('summary-form');
 const input = document.getElementById('book-content');
 const output = document.getElementById('book-summary');
+const gpt = require("./api/gpt-proxy.js")
 
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
@@ -11,26 +12,27 @@ form.addEventListener('submit', async (event) => {
     return;
   }
 
-  const response = await fetch('/api/gpt-proxy', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      prompt: `Write a thorough yet concise summary of **${bookContent}**. Concentrate on only the most important takeaways and primary points from the book that together will give me a solid overview and understanding of the book and its topic.`,
-    })
-  });
+  // const response = await fetch('/api/gpt-proxy', {
+  //   method: 'POST',
+  //   headers: {
+  //     'Content-Type': 'application/json'
+  //   },
+  //   body: JSON.stringify({
+  //     prompt: `Write a thorough yet concise summary of **${bookContent}**. Concentrate on only the most important takeaways and primary points from the book that together will give me a solid overview and understanding of the book and its topic.`,
+  //   })
+  // });
+  const res = await gpt(bookContent)
+  console.log(res);
+  // if (!response.ok) {
+  //   output.innerText = 'An error occurred while processing your request. Please try again later.';
+  //   console.error(response);
+  //   return;
+  // }
 
-  if (!response.ok) {
-    output.innerText = 'An error occurred while processing your request. Please try again later.';
-    console.error(response);
-    return;
-  }
-
-  const summary = await response.text();
-  if (summary) {
-    output.innerText = summary;
-  } else {
-    output.innerText = 'Sorry, we could not generate a summary for this text.';
-  }
+  // const summary = await response.text();
+  // if (summary) {
+  //   output.innerText = summary;
+  // } else {
+  //   output.innerText = 'Sorry, we could not generate a summary for this text.';
+  // }
 });

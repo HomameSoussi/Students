@@ -3,8 +3,8 @@ const openai = require('openai');
 openai.api_key = process.env.OPENAI_API_KEY;
 openai.organization = process.env.OPENAI_ORGANIZATION;
 
-module.exports = async (req, res) => {
-  const prompt = req.body.prompt;
+module.exports = async (prompt) => {
+  console.log(prompt);
   try {
     const result = await openai.complete({
       engine: 'text-davinci-002',
@@ -13,9 +13,11 @@ module.exports = async (req, res) => {
       n: 1,
       stop: ['\n']
     });
-    res.status(200).send(result.choices[0].text);
+    return(result);
+    //res.status(200).send(result.choices[0].text);
   } catch (error) {
     console.error('Error in OpenAI API call:', error);
-    res.status(500).send('Error in OpenAI API call');
+    throw error
+    //res.status(500).send('Error in OpenAI API call');
   }
 };
