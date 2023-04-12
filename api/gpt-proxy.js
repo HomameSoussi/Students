@@ -1,3 +1,5 @@
+import * as openai from 'https://esm.run/openai';
+
 const openai = require("openai");
 
 module.exports = async (req, res) => {
