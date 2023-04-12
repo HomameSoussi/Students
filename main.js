@@ -14,6 +14,7 @@ form.addEventListener('submit', async (event) => {
     output.innerText = 'Please enter book name.';
     return;
   }
+  
 
   // const response = await fetch('/api/gpt-proxy', {
   //   method: 'POST',
