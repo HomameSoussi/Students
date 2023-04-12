@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "openai": "^0.28.0"
+    "openai": "latest"
+
   }
 }
