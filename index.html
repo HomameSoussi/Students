@@ -1,32 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Summary Finder</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="main.js" defer></script>
-   <script type="module">
-  import * as openai from 'https://esm.run/openai';
-</script>
-
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GPT-4 Summary Generator</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Book Summary Finder</h1>
-    </header>
-    <main>
-        <form id="searchForm">
-            <label for="bookTitle">Book Title:</label>
-            <input type="text" id="bookTitle" name="bookTitle" required>
-            <label for="authorName">Author Name (optional):</label>
-            <input type="text" id="authorName" name="authorName">
-            <button type="submit">Get Summary</button>
-        </form>
-        <div id="bookSummary">
-            <!-- The book summary will be displayed here -->
-        </div>
-    </main>
+  <header>
+    <h1>GPT-4 Summary Generator</h1>
+  </header>
+  <main>
+    <form id="form">
+      <label for="prompt">Enter Text:</label>
+      <textarea id="prompt" name="prompt" placeholder="Enter text to summarize"></textarea>
+      <button type="submit" id="submit-btn">Get Summary</button>
+    </form>
+    <div id="summary"></div>
+  </main>
+  <script src="main.js"></script>
 </body>
 </html>
