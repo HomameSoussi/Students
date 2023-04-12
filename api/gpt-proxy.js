@@ -1,3 +1,4 @@
+const openai = require("openai");
 
 module.exports = async (req, res) => {
   const { bookTitle } = req.body;
