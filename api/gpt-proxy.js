@@ -1,4 +1,10 @@
-import * as openai from 'https://esm.run/openai';
+const script = document.createElement('script');
+script.src = 'https://unpkg.com/openai';
+document.head.appendChild(script);
+
+script.onload = () => {
+  // use the openai package here
+};
 
 const openai = require("openai");
 
